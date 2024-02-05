@@ -26,7 +26,9 @@ Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is 
 **Input Format**
 
 The STATION table is described as follows:
-         **STATION**
+
+ **STATION**
+         
 |Field   | Type       |
 |--------|------------|
 |ID      |NUMBER      |
