@@ -16,8 +16,54 @@ Input Format
 The following tables contain company data:
 * Company: The company_code is the code of the company and founder is the founder of the company. 
 
-|Column|Type|
-|------|-----|
+|   Column   | Type | 
+|------------|------|
+|company_code|string|
+|founder     |string|
+
+* Lead_Manager: The lead_manager_code is the code of the lead manager, and the company_code is the code of the working company. 
+
+|   Column   | Type | 
+|------------|------|
+|Lead_Manager_code|string|
+|company_code|string|
+
+* Senior_Manager: The senior_manager_code is the code of the senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+|   Column   | Type | 
+|------------|------|
+|senior_manager_code|string|
+|Lead_Manager_code|string|
+|company_code|string|
+
+* Manager: The manager_code is the code of the manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+|   Column   | Type | 
+|------------|------|
+|Manager_code|string|
+|senior_manager_code|string|
+|Lead_Manager_code|string|
+|company_code|string|
+
+* Employee: The employee_code is the code of the employee, the manager_code is the code of its manager, the senior_manager_code is the code of its senior manager, the lead_manager_code is the code of its lead manager, and the company_code is the code of the working company. 
+
+|   Column   | Type | 
+|------------|------|
+|Employee_code|string|
+|Manager_code|string|
+|senior_manager_code|string|
+|Lead_Manager_code|string|
+|company_code|string|
+
+SOLUTION
+
+select company_code,founder,
+(select count(distinct lead_manager_code) from lead_manager where company_code=c.company_code),
+(select count(distinct senior_manager_code)from senior_manager where company_code=c.company_code),
+(select count(distinct manager_code) from manager where company_code=c.company_code),
+(select count(distinct employee_code)from employee where company_code=c.company_code) 
+from company c
+order by company_code;
 
 
 
