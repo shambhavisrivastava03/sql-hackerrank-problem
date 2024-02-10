@@ -146,7 +146,6 @@ The STATION table is described as follows:
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
 
-
 **Solution**
 
 select distinct city from station where city regexp '[aeiouAEIOU]$';
@@ -154,9 +153,11 @@ select distinct city from station where city regexp '[aeiouAEIOU]$';
 **##Weather Observation Station 8**
 
 Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+
 **Input Format**
 
 The STATION table is described as follows:
+
 **Station**
 |Field|Type|
 |-----|-----|
@@ -175,9 +176,11 @@ select distinct city from station where city regexp '^[aeiou]' and city regexp '
 **##Weather Observation Station 9**
 
 Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+
 **Input Format**
 
 The STATION table is described as follows:
+
 **Station**
 |Field|Type|
 |-----|-----|
@@ -188,6 +191,7 @@ The STATION table is described as follows:
 |LONG_W|NUMBER|
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
+
 **Solution**
 
 select distinct city from station where city not regexp '^[aeiou]'; 
@@ -196,9 +200,11 @@ select distinct city from station where city not regexp '^[aeiou]';
 **##Weather Observation Station 10**
 
 Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
 **Input Format**
 
 The STATION table is described as follows:
+
 **Station**
 |Field|Type|
 |-----|-----|
@@ -209,6 +215,7 @@ The STATION table is described as follows:
 |LONG_W|NUMBER|
 
 where LAT_N is the northern latitude and LONG_W is the western longitude.
+
 **Solution**
 
 select distinct city from station where city not regexp '[aeoiu]$';
